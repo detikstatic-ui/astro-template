@@ -7,8 +7,6 @@ export interface Props {
   image?: string;
 }
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-
 const { title, description } = Astro.props;
 ---
 
@@ -18,8 +16,6 @@ const { title, description } = Astro.props;
 <meta name="generator" content={Astro.generator} />
 <link rel="icon" type="image/svg+xml" href={`${BASE_URL}favicon.svg`} />
 
-<!-- Canonical URL -->
-<link rel="canonical" href={canonicalURL} />
 
 <!-- Primary Meta Tags -->
 <title>{title}</title>
