@@ -2,7 +2,7 @@ const plugin = require("tailwindcss/plugin");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = plugin(
-  function ({ addBase, addComponents, addUtilities, addVariant, theme }) {
+  function ({ addBase, addComponents, addUtilities, addVariant, matchVariant, theme }) {
     addBase({
       h1: { fontSize: theme("fontSize.2xl") },
       h2: { fontSize: theme("fontSize.xl") },
@@ -297,6 +297,9 @@ module.exports = plugin(
       },
     });
     addUtilities({
+      ".text-balance": {
+        "text-wrap": "balance",
+      },
       ".content-auto": {
         "content-visibility": "auto",
       },
@@ -311,8 +314,19 @@ module.exports = plugin(
     addVariant("optional", "&:optional");
     addVariant("group-optional", ":merge(.group):optional &");
     addVariant("peer-optional", ":merge(.peer):optional ~ &");
-  },
+    matchVariant(
+      "has",
+      (value) => {
+        return `&:has(${value})`;
+      },
+      {
+        values: {
+          checked: "input:checked",
+        },
+      }
+    );
+  },  
   {
     theme: {},
-  }
+  },  
 );
