@@ -4,7 +4,7 @@ import { defineConfig } from "astro/config"
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://online.detik.com", //  Change to your site URL  
+  site: "https://astronaut.github.io", //  Change to your site URL  
   vite: {
     build: {
       cssCodeSplit: false,
@@ -16,13 +16,12 @@ export default defineConfig({
       applyBaseStyles: false,
     }),
   ],
-  base: "/design/static/starter-project/preview/", // Change to your base path
+  base: '/my-repo', // Change to your base path
   build: {
     format: "file",
     assets: "_starter-project",// Change to your project name
     inlineStylesheets: "never",
   },
   compressHTML: false,
-  output: "static",
-  outDir: "./preview",
+  output: "static",  
 })
