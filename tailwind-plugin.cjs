@@ -296,10 +296,7 @@ module.exports = plugin(
         "@apply flex gap-4": {},
       },
     });
-    addUtilities({
-      ".text-balance": {
-        "text-wrap": "balance",
-      },
+    addUtilities({      
       ".content-auto": {
         "content-visibility": "auto",
       },
@@ -313,18 +310,7 @@ module.exports = plugin(
     addVariant("hocus", ["&:hover", "&:focus"]);
     addVariant("optional", "&:optional");
     addVariant("group-optional", ":merge(.group):optional &");
-    addVariant("peer-optional", ":merge(.peer):optional ~ &");
-    matchVariant(
-      "has",
-      (value) => {
-        return `&:has(${value})`;
-      },
-      {
-        values: {
-          checked: "input:checked",
-        },
-      }
-    );
+    addVariant("peer-optional", ":merge(.peer):optional ~ &");    
   },  
   {
     theme: {},
